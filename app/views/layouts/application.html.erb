@@ -39,6 +39,7 @@
             <div class="field is-grouped">
 
             <% if user_signed_in? %>
+               <%= link_to 'Sell', new_product_path, class: "navbar-item button is-dark" %>
 
               <div class="navbar-item has-dropdown is-hoverable">
                 <%= link_to 'Account', edit_user_registration_path, class: "navbar-link" %>
@@ -67,3 +68,5 @@
 
   </body>
 </html>
+
+

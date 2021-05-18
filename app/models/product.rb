@@ -1,7 +1,8 @@
 class Product < ApplicationRecord
-
+  before_destroy :not_referenced_by_any_line_item
   belongs_to :user, optional: true
   has_one_attached :image
+  has_many :line_items
   
 
   # mount_uploader :image, ImageUploader
@@ -15,6 +16,15 @@ class Product < ApplicationRecord
   validates :instock_quantity, length: { maximum: 5}
 
 #   BRAND = %w{ Fender Gibson Epiphone ESP Martin Dean Taylor Jackson PRS  Ibanez Charvel Washburn }
+
+private
+
+  def not_refereced_by_any_line_item
+    unless line_items.empty?
+      errors.add(:base, "Line items present")
+      throw :abort
+    end
+  end
 
    
 end
