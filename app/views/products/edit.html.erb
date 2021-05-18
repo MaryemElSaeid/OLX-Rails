@@ -1,6 +1,18 @@
-<h1>Editing Product</h1>
+<% content_for :header do %>
+<section class="hero is-warning">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Editing Product
+      </h1>
+    </div>
+  </div>
+</section>
+<% end %>
 
-<%= render 'form', product: @product %>
-
+<div class="pv4">
+  <%= render 'form', product: @product %>
+</div>
+    
 <%= link_to 'Show', @product %> |
 <%= link_to 'Back', products_path %>
