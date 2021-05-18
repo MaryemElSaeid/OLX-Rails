@@ -40,6 +40,7 @@ gem 'simple_form', '~> 5.0'
 gem 'devise'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'carrierwave'
+gem 'activeadmin'
 
 
 # Use ActiveStorage variant
