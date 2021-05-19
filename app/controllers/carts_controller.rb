@@ -71,7 +71,7 @@ class CartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
-      params.fetch(:cart, {})
+      params.fetch(:cart, {}).permit(:title, :price, :description, :image)
     end
 
     def invalid_cart
