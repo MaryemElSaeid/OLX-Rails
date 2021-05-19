@@ -32,6 +32,23 @@
           </div>
         </div>
 
+        <div class="columns">
+          <div class="field column is-4">
+            <div class="control">
+              <label class="label">Brand</label>
+              <div class="control has-icons-left">
+                <span class="select">
+                <% @brands.each do |brand| %>
+                  <%= f.input_field :brand, collection: :BRAND, prompt: "Select brand" %>
+                <% end %>
+                </span>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-tag"></i>
+                </span>
+              </div>
+            </div>
+           </div>
+
        
 
         <div class="field">

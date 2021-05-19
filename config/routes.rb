@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :stores
+  resources :categories
+  resources :brands
   resources :line_items
   resources :carts
   devise_for :admin_users, ActiveAdmin::Devise.config

@@ -6,6 +6,8 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all.order("created_at desc")
+    # @products = Product.all.includes(:brand)
+    
   end
 
   # GET /products/1
@@ -26,6 +28,8 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = current_user.products.build(product_params)
+    @brands = Brand.all.order("created_at desc")
+    @products = Product.all.includes(:brand)
 
     respond_to do |format|
       if @product.save
@@ -41,6 +45,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    @brands = Brand.all.order("created_at desc")
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'product was successfully updated.' }

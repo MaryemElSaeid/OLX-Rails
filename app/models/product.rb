@@ -3,6 +3,8 @@ class Product < ApplicationRecord
   belongs_to :user, optional: true
   has_one_attached :image
   has_many :line_items
+  belongs_to :brand
+
   
 
   # mount_uploader :image, ImageUploader
