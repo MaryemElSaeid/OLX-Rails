@@ -17,7 +17,11 @@ class Product < ApplicationRecord
   validates :price, length: { maximum: 10 }
   validates :instock_quantity, length: { maximum: 5}
 
-#   BRAND = %w{ Fender Gibson Epiphone ESP Martin Dean Taylor Jackson PRS  Ibanez Charvel Washburn }
+#   def to_param
+#     return Brand.name 
+#  end
+
+
 
 private
 

@@ -32,22 +32,23 @@
           </div>
         </div>
 
-        <div class="columns">
+
+
+
+          <div class="columns">
           <div class="field column is-4">
             <div class="control">
               <label class="label">Brand</label>
               <div class="control has-icons-left">
-                <span class="select">
-                <% @brands.each do |brand| %>
-                  <%= f.input_field :brand, collection: :BRAND, prompt: "Select brand" %>
-                <% end %>
-                </span>
+                <span class="select">   
+                  <%= f.collection_select :brand_name, Brand.order(:name),:id,:name, include_blank: true, prompt: "Select brand" , input_html: { class:"input" } %> 
+                 </span>
                 <span class="icon is-small is-left">
                   <i class="fa fa-tag"></i>
                 </span>
               </div>
             </div>
-           </div>
+           </div> 
 
        
 
@@ -56,12 +57,7 @@
             <label class="label">Add images</label>
               <div class="file">
               <label class="file-label">
-                <%#= f.input :image, as: :file, input_html: { class:"file-input product-image" }, label: false, wrapper: false %>
                  <%= f.file_field :image %>
-                  <span class="file-cta">
-                    <span class="file-icon"><i class="fa fa-upload"></i></span>
-                    <span class="file-label">Choose a file…</span>
-                  </span>
               </label>
               </div>
             </div>

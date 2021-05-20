@@ -1,8 +1,8 @@
 <% content_for :header do %>
-<section class="hero is-warning">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
+<section class="hero is-warning" style="background-color:#696969; height: 80;text-align: center;">
+  <div >
+    <div class="container" style="height:60px;" >
+      <h1 class="title" style="margin-top: 20px;">
         Browse the latest products on OLX
       </h1>
     </div>
@@ -13,18 +13,10 @@
 <div class="product-index-grid pt4">
   <% @products.each do |product| %>
 
-    <div class="product border-light">
-
-      <% if product.image.attached? %>
-      <%= image_tag product.image, style: "width: 200px; display: block" %>
-     <% end %>
-
-
-
-      </div>
-
-
     <div class="pa3">
+    <% if product.image.attached? %>
+      <%= image_tag product.image, style: "width: 100px; " %>
+     <% end %>
 
       <h3 class="fw7 f4 title"><%= link_to product.title, product %></h3>
 
@@ -37,7 +29,7 @@
          <%= link_to 'Delete', product, method: :delete, data: { confirm: "Are you sure ?" }, class: "button is-small" %>
       <% end %>
 
-    </div>
+   
   </div>
   <% end %>
 </div>

@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all.order("created_at desc")
+    @products = Product.all.order("created_at desc").includes(:brand)
     # @products = Product.all.includes(:brand)
     
   end
@@ -18,6 +18,15 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = current_user.products.build
+    # @user = User.find params[:id]
+    # @user.income_pictures #-> collection of income pictures :)
+    
+    @brand=Brand.all()
+    # @product=@brand.products.build
+
+    # @brand.products
+    # @product = @brand.products.all.order("created_at desc")
+    
   end
 
   # GET /products/1/edit
@@ -27,10 +36,15 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = current_user.products.build(product_params)
-    @brands = Brand.all.order("created_at desc")
-    @products = Product.all.includes(:brand)
+    @brands = Brand.all
+    brand=Brand.find(params[:product][:brand_name])
 
+    @product = brand.products.new(product_params)
+    @product.user_id=current_user.id
+    
+    # @product = current_user.products.build(product_params)
+    byebug
+    # @product=@brand.products.build(params[:product])
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'product was successfully created.' }
@@ -75,6 +89,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description, :price, :instock_quantity, :image)
+      params.require(:product).permit(:title, :description, :price, :instock_quantity, :image, :brand_name)
     end
 end
