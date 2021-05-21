@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_20_232223) do
+ActiveRecord::Schema.define(version: 2021_05_21_095325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,8 @@ ActiveRecord::Schema.define(version: 2021_05_20_232223) do
     t.bigint "user_id"
     t.string "brand_name"
     t.bigint "brand_id"
+    t.bigint "category_id"
+    t.bigint "store_id"
   end
 
   create_table "stores", force: :cascade do |t|

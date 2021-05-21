@@ -34,7 +34,7 @@
 
 
 
-
+          
           <div class="columns">
           <div class="field column is-4">
             <div class="control">
@@ -50,8 +50,39 @@
             </div>
            </div> 
 
-       
 
+           
+          <div class="field column is-4">
+            <div class="control">
+              <label class="label">Category</label>
+              <div class="control has-icons-left">
+                <span class="select">   
+                  <%= f.collection_select :category_id, Category.order(:name),:id,:name,  prompt: "Select category" , input_html: { class:"input" } %> 
+                 </span>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-tag"></i>
+                </span>
+              </div>
+            </div>
+           </div> 
+
+           
+          <div class="field column is-4">
+            <div class="control">
+              <label class="label">Store</label>
+              <div class="control has-icons-left">
+                <span class="select">   
+                  <%= f.collection_select :store_id, Store.order(:name),:id,:name,  prompt: "Select store" , input_html: { class:"input" } %> 
+                 </span>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-tag"></i>
+                </span>
+              </div>
+            </div>
+           </div> 
+</div>
+       
+          
         <div class="field">
           <div class="control">
             <label class="label">Add images</label>
@@ -66,9 +97,9 @@
         <hr />
 
         <div class="field is-grouped">
-          <div class="control">
+          <div class="control" >
             <%= f.button :submit, class: 'button is-warning' %>
-            <%= link_to 'Cancel', products_path, class:'button is-light' %>
+            <%= link_to 'Cancel', products_path, class:'button is-light', style: "text-align: center; line-height: 22px;" %>
           </div>
         </div>
 
