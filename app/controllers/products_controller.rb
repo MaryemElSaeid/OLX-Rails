@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
     @product.user_id=current_user.id
     
     # @product = current_user.products.build(product_params)
-    byebug
+    # byebug
     # @product=@brand.products.build(params[:product])
     respond_to do |format|
       if @product.save
