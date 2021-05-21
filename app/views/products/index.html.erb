@@ -20,7 +20,8 @@
 
       <h3 class="fw7 f4 title"><%= link_to product.title, product %></h3>
 
-      <p class="has-text-gray fg pt1">Sold by <%= product.user.name %></p>
+      <p class="has-text-gray fg pt1">Sold by: <%= product.user.name %></p>
+       <p class="has-text-gray fg pt1">Brand: <%= product.brand_name %></p>
 
       <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(product.price) %></p>
 

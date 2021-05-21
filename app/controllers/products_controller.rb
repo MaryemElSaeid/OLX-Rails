@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all.order("created_at desc").includes(:brand)
     # @products = Product.all.includes(:brand)
-    
+  
   end
 
   # GET /products/1
@@ -38,6 +38,7 @@ class ProductsController < ApplicationController
   def create
     @brands = Brand.all
     brand=Brand.find(params[:product][:brand_name])
+
 
     @product = brand.products.new(product_params)
     @product.user_id=current_user.id
