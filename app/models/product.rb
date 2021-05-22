@@ -1,9 +1,12 @@
 class Product < ApplicationRecord
-  before_destroy :not_referenced_by_any_line_item
+  before_destroy :not_refereced_by_any_line_item
   belongs_to :user, optional: true
   has_one_attached :image
   has_many :line_items
   belongs_to :brand
+  belongs_to :category
+  belongs_to :store
+
   
 
   
@@ -26,7 +29,7 @@ class Product < ApplicationRecord
 
 private
 
-  def not_referenced_by_any_line_item
+  def not_refereced_by_any_line_item
     unless line_items.empty?
       errors.add(:base, "Line items present")
       throw :abort

@@ -41,6 +41,7 @@ gem 'devise'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'carrierwave'
 gem 'activeadmin'
+gem 'stripe'
 
 
 # Use ActiveStorage variant
