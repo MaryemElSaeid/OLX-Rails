@@ -5,22 +5,24 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    # @products = Product.all.order("created_at desc").includes(:brand)
-    # # @products = Product.all.includes(:brand)
-    # @products = @products.filter_by_title(params[:title]) if params[:title].present?
+    
     if params['category'].blank? or params['category']['id'].blank? 
-      @products = Product.all.order("created_at desc").includes(:brand)
-    elsif
+    @products = Product.all.order("created_at desc").includes(:brand) 
+
+    else
       category = Category.find(params['category']['id']) 
       @products = category.products 
-    elsif
+
       brand = Brand.find(params['brand']['id']) 
       @products = brand.products 
+
+      user = User.find(params['user']['id']) 
+      @products = user.products 
+
       end 
       @products = @products.search(params[:keywords]).order('created_at DESC') 
       
   end
-
 
   # GET /products/1
   # GET /products/1.json
