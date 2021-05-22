@@ -156,7 +156,6 @@ ActiveRecord::Schema.define(version: 2021_05_21_191056) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.jsonb "pay_data"
     t.string "processor"
     t.string "processor_id"
     t.datetime "trial_ends_at"

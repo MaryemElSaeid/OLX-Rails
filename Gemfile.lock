@@ -196,6 +196,8 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    pay (2.7.0)
+      rails (>= 4.2)
     pg (1.2.3)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -321,6 +323,7 @@ DEPENDENCIES
   guard-livereload (~> 2.5, >= 2.5.2)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  pay
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.6)

@@ -10,6 +10,15 @@
 </section>
 <% end %>
 
+<div class="pa3" >
+<%= form_tag(products_path, method: :get) do %>
+    <%= text_field_tag :keywords, params[:keywords]  %>
+    <%= collection_select :category, :id, Category.all.order('name ASC'), :id, :name,{include_blank: 'Select Category'} %>
+    <%= collection_select :brand, :id, Brand.all.order('name ASC'), :id, :name,{include_blank: 'Select Brand'} %>
+    <%= submit_tag 'Search', name: nil %>
+<% end %>
+</div>
+
 <div class="product-index-grid pt4">
   <% @products.each do |product| %>
 

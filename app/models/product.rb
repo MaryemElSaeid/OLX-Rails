@@ -7,7 +7,15 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :store
 
-  
+  # scope :filter_by_title, -> (title) { where title: title }
+
+  def self.search(keywords)
+    if keywords
+      where("title LIKE ? OR description LIKE ? " , "%#{keywords}%", "%#{keywords}%").order('id DESC')
+    else
+      order('id DESC') 
+    end
+  end
 
   
 
