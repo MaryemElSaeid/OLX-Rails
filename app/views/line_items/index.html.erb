@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Line Items</h1>
+<h1>Items</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Product</th>
+      <th>Products</th>
       <th>Cart</th>
       <th colspan="3"></th>
     </tr>
@@ -18,7 +18,7 @@
         <td><%= line_item.cart %></td>
         <td><%= link_to 'Show', line_item %></td>
         <td><%= link_to 'Edit', edit_line_item_path(line_item) %></td>
-        <td><%= link_to 'Destroy', line_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', line_item, method: :delete, data: { confirm: 'sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Line Item', new_line_item_path %>
+<%= link_to 'Item', new_line_item_path %>
