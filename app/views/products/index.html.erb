@@ -20,12 +20,14 @@
 <% end %>
 </div>
 
+
+
 <div class="product-index-grid pt4">
   <% @products.each do |product| %>
 
-    <div class="pa3">
+    <div class="pa3" styel="width:100px;">
     <% if product.image.attached? %>
-      <%= image_tag product.image, style: "width: 100px; " %>
+      <%= image_tag product.image, style: "width: 100px; height:150px; " %>
      <% end %>
 
       <h3 class="fw7 f4 title"><%= link_to product.title, product %></h3>
@@ -42,4 +44,5 @@
    
   </div>
   <% end %>
+
 </div>
