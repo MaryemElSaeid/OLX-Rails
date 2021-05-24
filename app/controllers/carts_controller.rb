@@ -32,7 +32,7 @@ class CartsController < ApplicationController
     end
   end
 
-#di function 34an 
+
 
   def update
     respond_to do |format|
@@ -46,7 +46,7 @@ class CartsController < ApplicationController
     end
   end
 
-
+# empty the whole cart
   def destroy
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil

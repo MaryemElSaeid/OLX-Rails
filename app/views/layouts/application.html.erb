@@ -38,7 +38,10 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="field is-grouped">
-            
+          
+            <% if user_signed_in? %>
+
+              
             <% if total_cart_items %>
               <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do %>
               <span class="icon is-small">
@@ -50,7 +53,6 @@
               <% end %>
             <% end %>
 
-            <% if user_signed_in? %>
             
                <%= link_to 'Sell', new_product_path, class: "navbar-item button is-dark", style: "text-align: center; line-height: 22px;" %>
 

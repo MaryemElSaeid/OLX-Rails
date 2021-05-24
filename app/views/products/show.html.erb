@@ -41,7 +41,7 @@
         <h4 class="title is-5 has-text-centered"><%= number_to_currency(@product.price) %></h4>
         <p class="has-text-centered mb4">Sold by <%= @product.user.name %></p>
         <% if not product_author(@product) %>
-        <%= button_to 'Add to cart', line_items_path(product_id: @product), class: 'button is-warning add-to-cart' , :action => "update_instock_quantity" %>
+        <%= button_to 'Add to cart', line_items_path(product_id: @product), class: 'button is-warning add-to-cart' %>
         <% end %>
       </div>
     </div>

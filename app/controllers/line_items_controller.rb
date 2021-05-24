@@ -20,10 +20,13 @@ class LineItemsController < ApplicationController
   def edit
   end
 
+  # instock_quantity --1
   def create
     product = Product.find(params[:product_id])
+    # byebug
     @line_item = @cart.add_product(product)
-
+    product.update_columns(instock_quantity: product.instock_quantity - 1)
+    # @product.instock_quantity --
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to @line_item.cart, notice: 'Item add' }
@@ -47,15 +50,44 @@ class LineItemsController < ApplicationController
     end
   end
 
-
+# Remove a specific item from the cart --> instock_quantity ++1
   def destroy
     @cart = Cart.find(session[:cart_id])
+    @line_item = @cart['line_items'].find { |line_item| line_item['product_id'] == params[:id] }
+    product = Product.find(@line_item['product_id'])
+    product.update_columns(instock_quantity: product.instock_quantity + 1)
     @line_item.destroy
+   
+   
+    # @line_item = @cart['line_items'].when(id: params[:id]).take
+   
     respond_to do |format|
       format.html { redirect_to cart_path(@cart), notice: 'removed.' }
       format.json { head :no_content }
     end
+  
   end
+
+
+
+
+
+#   def destroy
+#     @cart = Cart.find(session[:cart_id])
+#     @line_item = @cart['line_items'].find { |line_item| line_item['product_id'] == params[:id] }
+
+#     product = Product.find(item['product_id'])
+#     product.update_columns(instock_quantity: product.instock_quantity + 1)
+
+#     if line_item
+#         cart['line_items'].delete line_item
+#     end
+#   redirect_to cart_path
+# end
+
+
+
+
 
   private
 
@@ -67,3 +99,6 @@ class LineItemsController < ApplicationController
       params.require(:line_item).permit(:product_id)
     end
 end
+
+
+
