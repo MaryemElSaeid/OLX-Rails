@@ -2,23 +2,29 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
  
   def index
+    
+    if (params['category'].blank? or params['category']['id'].blank?) and (params['brand'].blank? or params['brand']['id'].blank?) and (params['user'].blank? or params['user']['id'].blank?) 
+      @products = Product.all.order("created_at desc").includes(:brand) 
 
-    if params['category'].blank? or params['category']['id'].blank? 
-    @products = Product.all.order("created_at desc").includes(:brand) 
-
-    else
+    elsif not (params['category'].blank? or params['category']['id'].blank?) 
       category = Category.find(params['category']['id']) 
-      @products = category.products 
+      @products = category.products
 
+    elsif not (params['brand'].blank? or params['brand']['id'].blank?) 
       brand = Brand.find(params['brand']['id']) 
-      @products = brand.products 
-
-      user = User.find(params['user']['id']) 
-      @products = user.products 
-
-      end 
-      @products = @products.search(params[:keywords]).order('created_at DESC') 
+      @products = brand.products
       
+    elsif not (params['user'].blank? or params['user']['id'].blank?) 
+      user = User.find(params['user']['id']) 
+      @products = user.products
+
+    else 
+      @products = Product.all.order("created_at desc").includes(:brand) 
+
+    end
+
+    @products = @products.search(params[:keywords]).order('created_at DESC') 
+    
   end
 
   def show

@@ -12,12 +12,25 @@
 
 <div class="pa3" >
 <%= form_tag(products_path, method: :get) do %>
-    <%= text_field_tag :keywords, params[:keywords]  %>
-    <%= collection_select :category, :id, Category.all.order('name ASC'), :id, :name,{include_blank: 'Select Category'} %>
-    <%= collection_select :brand, :id, Brand.all.order('name ASC'), :id, :name,{include_blank: 'Select Brand'} %>
-    <%= collection_select :user, :id, User.all.order('name ASC'), :id, :name,{include_blank: 'Select Seller'} %>
-    <%= submit_tag 'Search', name: nil %>
+    <%= text_field_tag :keywords, params[:keywords] , style: "width: 160px;"  %>
+    <%= submit_tag 'Search', name: nil , style: "width: 90px;" %>
 <% end %>
+
+<%= form_tag(products_path, method: :get) do %>
+    <%= collection_select :category, :id, Category.all.order('name ASC'), :id, :name,{include_blank: 'Select Category'}, style: "width: 160px;" %>
+    <%= submit_tag 'Filter', name: nil, style: "width: 90px;" %>
+<% end %>
+
+<%= form_tag(products_path, method: :get) do %>
+    <%= collection_select :brand, :id, Brand.all.order('name ASC'), :id, :name,{include_blank: 'Select Brand'}, style: "width: 160px;" %>
+    <%= submit_tag 'Filter', name: nil, style: "width: 90px;" %>
+<% end %>
+
+<%= form_tag(products_path, method: :get) do %>
+    <%= collection_select :user, :id, User.all.order('name ASC'), :id, :name,{include_blank: 'Select User'}, style: "width: 160px;" %>
+    <%= submit_tag 'Filter', name: nil , style: "width: 90px;" %>
+<% end %>
+
 </div>
 
 
