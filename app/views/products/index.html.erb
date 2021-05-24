@@ -12,20 +12,35 @@
 
 <div class="pa3" >
 <%= form_tag(products_path, method: :get) do %>
-    <%= text_field_tag :keywords, params[:keywords]  %>
-    <%= collection_select :category, :id, Category.all.order('name ASC'), :id, :name,{include_blank: 'Select Category'} %>
-    <%= collection_select :brand, :id, Brand.all.order('name ASC'), :id, :name,{include_blank: 'Select Brand'} %>
-    <%= collection_select :user, :id, User.all.order('name ASC'), :id, :name,{include_blank: 'Select Seller'} %>
-    <%= submit_tag 'Search', name: nil %>
+    <%= text_field_tag :keywords, params[:keywords] , style: "width: 160px;"  %>
+    <%= submit_tag 'Search', name: nil , style: "width: 90px;" %>
 <% end %>
+
+<%= form_tag(products_path, method: :get) do %>
+    <%= collection_select :category, :id, Category.all.order('name ASC'), :id, :name,{include_blank: 'Select Category'}, style: "width: 160px;" %>
+    <%= submit_tag 'Filter', name: nil, style: "width: 90px;" %>
+<% end %>
+
+<%= form_tag(products_path, method: :get) do %>
+    <%= collection_select :brand, :id, Brand.all.order('name ASC'), :id, :name,{include_blank: 'Select Brand'}, style: "width: 160px;" %>
+    <%= submit_tag 'Filter', name: nil, style: "width: 90px;" %>
+<% end %>
+
+<%= form_tag(products_path, method: :get) do %>
+    <%= collection_select :user, :id, User.all.order('name ASC'), :id, :name,{include_blank: 'Select User'}, style: "width: 160px;" %>
+    <%= submit_tag 'Filter', name: nil , style: "width: 90px;" %>
+<% end %>
+
 </div>
+
+
 
 <div class="product-index-grid pt4">
   <% @products.each do |product| %>
 
-    <div class="pa3">
+    <div class="pa3" styel="width:100px;">
     <% if product.image.attached? %>
-      <%= image_tag product.image, style: "width: 100px; " %>
+      <%= image_tag product.image, style: "width: 100px; height:150px; " %>
      <% end %>
 
       <h3 class="fw7 f4 title"><%= link_to product.title, product %></h3>
@@ -42,4 +57,5 @@
    
   </div>
   <% end %>
+
 </div>
