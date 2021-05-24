@@ -29,6 +29,7 @@ class ProductsController < ApplicationController
 
   def show
     @products = Product.all
+    @product = Product.find(params[:id]).update_instock_quantity(changable_params)
   end
 
   def new
@@ -108,4 +109,14 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:title, :description, :price, :instock_quantity, :image, :brand_name, :category_id, :store_id)
     end
+
+    def changable_params
+      params.require(:product).permit( :instock_quantity)
+    end
+
+    def update_instock_quantity
+      @product.instock_quantity=@product.instock_quantity--1
+      byebug
+    end
+
 end
