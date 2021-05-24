@@ -7,7 +7,15 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :store
 
-  
+ 
+
+  def self.search(keywords)
+    if keywords
+      where("title LIKE ? OR description LIKE ? " , "%#{keywords}%", "%#{keywords}%").order('id DESC')
+    else
+      order('id DESC') 
+    end
+  end
 
   
 
@@ -16,8 +24,8 @@ class Product < ApplicationRecord
   
   # validates :image, presence: true, blob: { content_type: ['image/jpg', 'image/jpeg', 'image/png'] }
   validates :title,:price, :instock_quantity, presence: true
-  validates :description, length: { maximum: 1024, too_long: "%{count} characters is the maximum aloud. "}
-  validates :title, length: { maximum: 150, too_long: "%{count} characters is the maximum aloud. "}
+  validates :description, length: { maximum: 1024, too_long: "%{count} characters maximum. "}
+  validates :title, length: { maximum: 150, too_long: "%{count} character maximum. "}
   validates :price, length: { maximum: 10 }
   validates :instock_quantity, length: { maximum: 5}
 
@@ -31,7 +39,7 @@ private
 
   def not_refereced_by_any_line_item
     unless line_items.empty?
-      errors.add(:base, "Line items present")
+      errors.add(:base, "present")
       throw :abort
     end
   end

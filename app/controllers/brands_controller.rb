@@ -11,7 +11,7 @@ class BrandsController < InheritedResources::Base
     def create
     @brand = Brand.new(brand_params)
     if @brand.save
-    redirect_to brands_path, :notice => 'Your brand has been posted!'
+    redirect_to brands_path, :notice => 'brand posted!'
     else
     render 'new'
     end
@@ -24,7 +24,7 @@ class BrandsController < InheritedResources::Base
     def update
     @brand = Brand.find(params[:id])
     if @brand.update_attributes(brand_params)
-    redirect_to brands_path, :notice => 'Your brand has been posted!'
+    redirect_to brands_path, :notice => 'brand posted!'
     else
     render 'new'
     end
@@ -37,7 +37,7 @@ class BrandsController < InheritedResources::Base
     def destroy
     @brand = Brand.find(params[:id])
     @brand.destroy
-    redirect_to brands_path, :notice => 'Your brand has been deleted.'
+    redirect_to brands_path, :notice => 'brand deleted.'
     end
     
   

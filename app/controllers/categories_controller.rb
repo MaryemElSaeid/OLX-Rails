@@ -11,7 +11,7 @@ class CategoriesController < InheritedResources::Base
     def create
     @category= Category.new(category_params)
     if @category.save
-    redirect_to categories_path, :notice => 'Your category has been posted!'
+    redirect_to categories_path, :notice => 'category posted!'
     else
     render 'new'
     end
@@ -24,7 +24,7 @@ class CategoriesController < InheritedResources::Base
     def update
     @category = Category.find(params[:id])
     if @category.update_attributes(category_params)
-    redirect_to categories_path, :notice => 'Your category has been posted!'
+    redirect_to categories_path, :notice => 'category posted!'
     else
     render 'new'
     end
@@ -37,7 +37,7 @@ class CategoriesController < InheritedResources::Base
     def destroy
     @category= Category.find(params[:id])
     @category.destroy
-    redirect_to categories_path, :notice => 'Your category has been deleted.'
+    redirect_to categories_path, :notice => 'category deleted.'
     end
     
   

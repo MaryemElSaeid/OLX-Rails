@@ -1,5 +1,5 @@
   <div class="keep-shopping pv1 mt4 has-text-right">
-  <%= link_to 'Keep Shopping', products_path, class: 'button is-warning' %>
+  <%= link_to 'Continue Shopping', products_path, class: 'button is-warning' %>
 </div>
 <hr />
 <section class="section">
@@ -7,7 +7,7 @@
 
   <div class="columns">
     <div class="column">
-      <%= button_to 'Empty Cart', @cart, method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger" %>
+      <%= button_to 'Empty Cart', @cart, method: :delete, data: { confirm: "sure? " }, class: "button is-danger" %>
     </div>
     <div class="column total has-text-right">
       <h4 class="title is-4">
@@ -31,6 +31,9 @@
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description="Check out form"
+<<<<<<< HEAD
             data-amount=""
+=======
+>>>>>>> b054a88729813beee40d6ab291d4faa0251edf64
             data-locale="auto"></script>
 <% end %>

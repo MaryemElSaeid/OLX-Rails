@@ -42,6 +42,7 @@ gem 'gravatar_image_tag', '~> 1.2'
 gem 'carrierwave'
 gem 'activeadmin'
 gem 'stripe'
+gem 'pay'
 
 
 
