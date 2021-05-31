@@ -23,6 +23,6 @@ PUBLISHABLE_KEY=pk_test_51ItetHFcEs5dZMH9KzX2c2WQyAn7EfmgQCsL5SMw2ZGJLDUof9y2pZ1
  https://drive.google.com/file/d/1v32SPSM2i04Tv0zHo4XC7hcpCALHe2sa/view?usp=sharing
   
 * Heroku Link : 
-    https://sheltered-eyrie-46753.herokuapp.com/
+    https://rocky-plateau-39033.herokuapp.com/
  
 
