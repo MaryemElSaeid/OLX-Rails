@@ -19,8 +19,6 @@ rails db:seed
 PUBLISHABLE_KEY=pk_test_51ItetHFcEs5dZMH9KzX2c2WQyAn7EfmgQCsL5SMw2ZGJLDUof9y2pZ1DeOFDXfmT59nPE5hTyosqwAdOZCOFbWlS00V8OfHjlz SECRET_KEY=sk_test_51ItetHFcEs5dZMH99WkqdN5m5CVhElbBzrTk9BJeDwdzpU2olJ0jXDJ02PE3psaJxqGL4n99zVcCcQZRmxSyOFGI00t6LjlDMD rails s
 
 
-* ERD-diagram of the project:
- https://drive.google.com/file/d/1v32SPSM2i04Tv0zHo4XC7hcpCALHe2sa/view?usp=sharing
   
 * Heroku Link : 
     https://rocky-plateau-39033.herokuapp.com/
